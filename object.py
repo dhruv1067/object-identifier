@@ -11,6 +11,7 @@ colors = np.random.uniform(0 , 255 , size=(len(classes) , 3 ))
 while True:
     ret, frame = cap.read()
     if not ret : break
+    start = cv2.getTickCount()
     frame_id += 1 
     if frame_id % frame_skip != 0 : continue
     small_frame = cv2.resize(frame, (320,320))
@@ -36,6 +37,10 @@ while True:
             color = colors[class_ids[i]]
             cv2.rectangle(frame, (x,y), (x + w, y + h), color, 2)
             cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+    end = cv2.getTickCount()
+    fps = cv2.getTickFrequency() / (end - start)
+    cv2.putText(frame, f"FPS: {fps:.2f}", (10, 30), 
+    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
     cv2.imshow("YOLOv4 Detection", cv2.resize(frame, (2200, 860)))
     if cv2.waitKey(1) == ord('q'): break
 cap.release()
