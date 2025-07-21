@@ -1,13 +1,14 @@
-# Object Identifier (YOLOv4-Tiny)
+# Real-Time Object Detection with YOLOv4-Tiny
 
-This project uses **YOLOv4-Tiny** with OpenCV to perform **real-time object detection** from a webcam or IP camera feed.
+This project uses **YOLOv4-Tiny** and OpenCV to detect objects from an IP camera in **real time**.  
+It supports 80+ object classes (COCO dataset) and displays bounding boxes, labels, and FPS.
 
 ---
 
 ## Features
-- Detects objects in real-time using YOLOv4-Tiny.
-- Works with **webcam** or **IP camera stream**.
-- Displays **FPS counter** for performance tracking.
-- Lightweight (weights are downloaded separately to keep the repo small).
+- Real-time detection with **YOLOv4-Tiny** (fast & lightweight).
+- Works with **webcam or IP camera**.
+- Displays **bounding boxes, labels, and FPS**.
+- Dynamic window scaling for smooth viewing.
 
 ---
