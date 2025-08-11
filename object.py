@@ -8,9 +8,9 @@ with open("coco.names", "r") as f:classes = [line.strip() for line in f.readline
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i-1] for i in net.getUnconnectedOutLayers().flatten() ]
 # Video Source (IP camera)
-cap = cv2.VideoCapture('http://192.168.77.207:8080/video')
+cap = cv2.VideoCapture('http://192.168.0.104:8080/video')
 # Settings
-frame_skip = 5
+frame_skip = 2
 frame_id = 0
 colors = np.random.uniform(0 , 255 , size=(len(classes) , 3 ))
 # Main Loop
@@ -50,7 +50,7 @@ while True:
     cv2.putText(frame, f"FPS: {fps:.2f}", (10, 30), 
     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
     # Resize Dynamically
-    display_frames = cv2.resize(frame, (1600, 800))
+    display_frames = cv2.resize(frame, (1200, 800))
     cv2.imshow("YOLOv4 Detection", display_frames)
     if cv2.waitKey(1) == ord('q'): break
 cap.release()
